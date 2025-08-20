@@ -1,0 +1,140 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding: 0;
+    background-color: #1a090937;
+}
+.profile-img{
+    width: 150px;
+    border-radius: 50%;
+    border:3px solid white;
+    transition: transform 0.3s ease;
+}
+header{
+    text-align: center;
+    padding: 20px;
+    background-color: #0077b5;
+    color: white;
+}
+nav {
+    background-color: yellowgreen;
+    text-align: left;
+    padding: 10px;
+}
+nav a{
+    color: wheat;
+    margin:0 15px;
+    text-decoration: none;
+}
+nav a:hover{
+    text-decoration: underline;
+}
+section{
+    padding: 20px;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+footer{
+    text-align: center;
+    background-color: #0077b5;
+    color: wheat;
+    padding: 10px;
+}
+nav a:hover{
+    color: yellow;
+    text-decoration: underline;
+}
+h2{
+    color: #0077b5;
+}
+.fade-in{
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out,transform 0.8s ease-out;
+    pointer-events: none;
+}
+.fade-in.visible{
+    opacity: 1;
+    transform: translatey(0);
+    pointer-events: auto;
+}
+#searchInput{
+    padding: 8px;
+    width: 100px;
+    margin-left:20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+form label{
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+form input,form textarea{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+form button{
+    background: #333;
+    color: wheat;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+
+}
+form button:hover{
+    background: #ff9800;
+}
+#formMessage{
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.social-link{
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+    .social-link i{
+        margin-right: 8px;
+ }
+ /* Instagram Button */
+ .instagram{
+    background: #E1306c;
+    color: white;
+}
+.instagram:hover{
+    background: #c13584;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
