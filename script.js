@@ -11,76 +11,53 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".fade-in").forEach(el => {
         observer.observe(el);
 
-        // If already visible on load
         if (el.getBoundingClientRect().top < window.innerHeight) {
             el.classList.add("visible");
         }
     });
 
-    // Contact form validation
+    // Contact form logic
     const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
     if (form) {
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
 
-            let name = document.getElementById("name").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let message = document.getElementById("message").value.trim();
-            let formMessage = document.getElementById("formMessage");
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-            if (name === "" || email === "" || message === "") {
+            // Validation
+            if (!name || !email || !message) {
                 formMessage.style.color = "red";
                 formMessage.textContent = "⚠ Please fill out all fields!";
                 return;
             }
 
-            // Basic email check
-            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
             if (!email.match(emailPattern)) {
                 formMessage.style.color = "red";
                 formMessage.textContent = "⚠ Please enter a valid email address!";
                 return;
             }
 
-            // Success message
-            formMessage.style.color = "green";
-            formMessage.textContent = "✅ Thank you, your message has been sent!";
+            try {
+                const response = await fetch("http://localhost:5000/api/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, message })
+                });
 
-            // Reset form
-            form.reset();
+                const data = await response.json();
+                formMessage.style.color = "green";
+                formMessage.textContent = data.message || "✅ Your message has been sent!";
+                form.reset();
+            } catch (error) {
+                formMessage.style.color = "red";
+                formMessage.textContent = "❌ Something went wrong. Please try again later.";
+                console.error(error);
+            }
         });
     }
-});
-
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-    e.preventDefault(); // stop page reload
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-
-    // send to backend
-    const res = await fetch("http://localhost:3000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email })
-    });
-
-    const data = await res.json();
-    document.getElementById("response").innerText = data.message;
-});
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  let response = await fetch("/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, message })
-  });
-
-  let result = await response.json();
-  document.getElementById("formMessage").innerText = result.message;
 });
