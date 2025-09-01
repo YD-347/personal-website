@@ -52,11 +52,58 @@
     footer {
       background:green;
       color: white;
-      padding: 10px;
+      padding: 0.05px;
       position: fixed;
       bottom: 0;
       width: 100%;
     }
+    .youtube-gallery {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f5f5f5;
+}
+
+.youtube-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.video-item iframe {
+  width: 300px;
+  height: 170px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.video-item iframe:hover {
+  transform: scale(1.05);
+}
+
+.subscribe-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  background-color: #FF0000;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.subscribe-btn:hover {
+  background-color: #cc0000;
+}
+    
   </style>
 </head>
 <body>
@@ -86,7 +133,29 @@
     <div class="box">Box 4</div>
 
   </div>
-
+<section class="youtube-gallery">
+  <h2>Our Latest Videos</h2>
+  <div class="video-grid">
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed?listType=playlist&list=PL0ROQoadLEC3lusY3btWQW45WrRyay0RL&index=0" 
+              title="YouTube video 1" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed?listType=playlist&list=PL0ROQoadLEC3lusY3btWQW45WrRyay0RL&index=1" 
+              title="YouTube video 2" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-item">
+      <iframe src="https://www.youtube.com/embed?listType=playlist&list=PL0ROQoadLEC3lusY3btWQW45WrRyay0RL&index=2" 
+              title="YouTube video 3" frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  <a href="https://www.youtube.com/@YuvrajDhage-347" class="subscribe-btn" target="_blank">
+    Subscribe to Our Channel
+  </a>
+</section>
   <!-- Footer -->
   <footer>
     <p>© 2025 My Website | All Rights Reserved</p>
