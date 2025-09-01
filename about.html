@@ -9,9 +9,29 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: rgb(125, 125, 87);
+      background:rgb(189, 181, 187);
       color: #333;
       text-align: center;
+    }
+    .container{
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .box{
+      background-color: #4CAF50;
+      color: white;
+      padding:40px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px
+      rgba(0,0,0,0.2);
+      flex: 1 1 150px;
+      transition: transform 0.3s,background-colour 0.3s;
+    }
+    .box:hover{
+      transform: translateY(-10px);
+      background-color: #45a049;
     }
     header {
       background: #333;
@@ -30,7 +50,7 @@
       padding: 50px 20px;
     }
     footer {
-      background: #333;
+      background:green;
       color: white;
       padding: 10px;
       position: fixed;
@@ -59,6 +79,13 @@
       You can always go back to the <a href="index.html">Home Page</a>.
     </p>
   </section>
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+
+  </div>
 
   <!-- Footer -->
   <footer>
