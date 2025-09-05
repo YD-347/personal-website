@@ -61,3 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+  const dots = document.querySelector(".menu-dots");
+  const dropdown = document.querySelector(".dropdown");
+
+  dots.addEventListener("click", () => {
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  });
+
+  // Close menu if click outside
+  window.addEventListener("click", function(e) {
+    if (!e.target.matches('.menu-dots')) {
+      dropdown.style.display = "none";
+    }
+  });
+

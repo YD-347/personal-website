@@ -129,6 +129,53 @@ form button:hover{
     transform: scale(1.1);
 }
 
+/* Menu container */
+.menu {
+  position: relative;
+  display: inline-block;
+  float: right; /* moves it to top-right */
+  margin: 20px;
+}
+
+/* 3 dots */
+.menu-dots {
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Dropdown (hidden by default) */
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: #fff;
+  min-width: 120px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  z-index: 1;
+}
+
+/* Dropdown links */
+.dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown a:hover {
+  background: #f0f0f0;
+}
+.horse{
+    position: absolute;
+    top:10px;
+    left:10px;
+    width: 120px;
+    z-index: 1000;
+    border-radius: 50%;
+}
+
 
 
 
